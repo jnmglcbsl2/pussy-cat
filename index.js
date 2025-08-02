@@ -1,14 +1,15 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/friend-request-pussy-cat', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'friend-request-pussy-cat.html'));
+// Root route (for default "/")
+app.get('/', (req, res) => {
+  res.send('Hello! Try going to <a href="/friend-request-pussy-cat">your invite</a>.');
 });
 
 app.listen(PORT, () => {
-    console.log('Server is live at http://localhost:${Port}/friend-request-pussy-cat');
+  console.log(`Server is live at http://localhost:${PORT}/friend-request-pussy-cat`);
 });

@@ -11,8 +11,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'friend-request-pussy-cat.html'));
 });
 
-// Optional: Named route (you can keep or remove)
 app.get('/friend-request-pussy-cat', (req, res) => {
+  console.log(`[VIEW] Someone visited at ${new Date().toISOString()}`);
   res.sendFile(path.join(__dirname, 'public', 'friend-request-pussy-cat.html'));
 });
 
